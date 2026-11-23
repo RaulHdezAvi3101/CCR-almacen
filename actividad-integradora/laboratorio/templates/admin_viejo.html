@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Administraci&oacute;n - CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="cuerpo-viejo">
+  <div class="marco-viejo">
+
+    <div class="barra-vieja">
+      <span class="titulo-viejo">CCR Administraci&oacute;n</span>
+      <span class="version-vieja">v2.1</span>
+    </div>
+
+    <div class="caja-vieja">
+      <h2>Panel de administraci&oacute;n</h2>
+      <p>Bienvenido, administrador. Sistema CCR-Bodegas v2.1.</p>
+
+      <table class="tabla-vieja">
+        <tr>
+          <th>Tabla</th>
+          <th>Registros</th>
+        </tr>
+        <tr><td>Clientes</td><td>{{ totales.clientes }}</td></tr>
+        <tr><td>Contratos</td><td>{{ totales.contratos }}</td></tr>
+        <tr><td>Comprobantes</td><td>{{ totales.comprobantes }}</td></tr>
+        <tr><td>Usuarios</td><td>{{ totales.usuarios }}</td></tr>
+      </table>
+
+      <h2>Herramientas</h2>
+      <ul class="lista-vieja">
+        <li><a href="/admin-viejo/usuarios">Usuarios del sistema</a></li>
+        <li><a href="/respaldo.sql">Respaldo de la base (respaldo.sql)</a></li>
+        <li><a href="/panel/comprobantes">Comprobantes recibidos</a></li>
+        <li><a href="/panel/clientes">Clientes registrados</a></li>
+      </ul>
+
+      <p class="pie-viejo">
+        Sistema CCR-Bodegas v2.1 &mdash; Direcci&oacute;n de Administraci&oacute;n
+      </p>
+    </div>
+
+  </div>
+<!-- CCR{panel_viejo_admin_admin} -->
+</body>
+</html>

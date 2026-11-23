@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Comprobantes - Panel CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">Panel interno</span>
+        <span class="horario">{{ datos.nombre }}</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/panel">Panel</a>
+      <a href="/panel/clientes">Clientes</a>
+      <a href="/panel/comprobantes">Comprobantes</a>
+      <a href="/registros">Registros</a>
+      <a href="/salir">Salir</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Sesi&oacute;n</h3>
+        <p class="dato">Usuario: {{ datos.usuario }}</p>
+        <p class="dato">Rol: {{ datos.rol }}</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Comprobantes recibidos</h1>
+
+        <p>&Uacute;ltimos 40 comprobantes registrados en el sistema.</p>
+
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Periodo</th>
+              <th>Cliente</th>
+              <th>Bodega</th>
+              <th>Monto</th>
+              <th>Archivo</th>
+              <th>Subido</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in lista %}
+            <tr class="{{ 'par' if loop.index is even else '' }}">
+              <td><a href="/comprobante/{{ c.id }}">{{ c.id }}</a></td>
+              <td>{{ c.periodo }}</td>
+              <td>{{ c.cliente }}</td>
+              <td>{{ c.bodega }}</td>
+              <td>${{ c.monto }}.00</td>
+              <td><a href="/comprobante/{{ c.id }}">{{ c.archivo }}</a></td>
+              <td>{{ c.subido }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <p class="aviso">
+          Los comprobantes se guardan por el nombre que sube el cliente. Si dos
+          clientes suben el mismo nombre, se queda el &uacute;ltimo.
+        </p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Acceso clientes - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">01 777 312 4410</span>
+        <span class="horario">Lunes a viernes, 9:00 a 18:00</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/bodegas">Bodegas</a>
+      <a href="/alta">Alta de clientes</a>
+      <a href="/comprobantes">Comprobantes</a>
+      <a href="/contratos">Consultar contrato</a>
+      <a href="/login">Acceso clientes</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Sucursales</h3>
+        <div class="sucursal">
+          <strong>Centro</strong>
+          <p>Avenida Morelos Sur 214, col. Centro, Cuernavaca</p>
+          <p>Tel. 777 312 4410</p>
+        </div>
+        <div class="sucursal">
+          <strong>Industrial</strong>
+          <p>Calle Zinc 8, Civac, Jiutepec</p>
+          <p>Tel. 777 320 8830</p>
+        </div>
+        <div class="sucursal">
+          <strong>Norte</strong>
+          <p>Avenida Universidad 1502, Cuernavaca</p>
+          <p>Tel. 777 314 2277</p>
+        </div>
+
+        <h3>Horario</h3>
+        <p class="dato">Lunes a viernes</p>
+        <p class="dato">9:00 a 18:00 h</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Acceso clientes</h1>
+
+        <p>Escriba su usuario y su contrase&ntilde;a para consultar sus
+        contratos y los comprobantes de pago.</p>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" action="/login" class="formulario">
+          <p>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" value="{{ usuario }}" size="28">
+          </p>
+          <p>
+            <label for="clave">Contrase&ntilde;a</label>
+            <input type="password" id="clave" name="clave" size="28">
+          </p>
+          <p>
+            <input type="submit" value="Entrar">
+          </p>
+        </form>
+
+        <p class="aviso">
+          &iquest;No recuerda su usuario? Escriba a
+          soporte@ccr-almacenes.example o llame a la sucursal.
+        </p>
+
+        <p class="nota-pie">&Uacute;ltima actualizaci&oacute;n del sistema: 14 de septiembre de 2021</p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

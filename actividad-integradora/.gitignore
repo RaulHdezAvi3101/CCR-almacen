@@ -1,0 +1,17 @@
+# Datos de grupos — se generan en el servidor con scripts/init.sh
+/datos/
+
+# Clave del docente y contexto de desarrollo — no van al repo público
+CLAVE-DOCENTE.md
+Contexto-AI.md
+
+# Base de datos original — se genera en el servidor con generar_datos.py
+laboratorio/datos/ccr.db
+
+# Bitácora de accesos (se crea en ejecución)
+laboratorio/bitacora.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

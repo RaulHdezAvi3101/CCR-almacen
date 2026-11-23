@@ -1,0 +1,9 @@
+# Lo que llega como volumen en runtime o es solo local no va al contexto de build.
+datos/
+.venv/
+pruebas/
+__pycache__/
+*.pyc
+.pytest_cache/
+bitacora.db
+.python-version

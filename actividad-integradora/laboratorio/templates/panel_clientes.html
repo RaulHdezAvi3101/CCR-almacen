@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Clientes - Panel CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">Panel interno</span>
+        <span class="horario">{{ datos.nombre }}</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/panel">Panel</a>
+      <a href="/panel/clientes">Clientes</a>
+      <a href="/panel/comprobantes">Comprobantes</a>
+      <a href="/registros">Registros</a>
+      <a href="/salir">Salir</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Sesi&oacute;n</h3>
+        <p class="dato">Usuario: {{ datos.usuario }}</p>
+        <p class="dato">Rol: {{ datos.rol }}</p>
+        <p class="dato">Sucursal: {{ datos.sucursal }}</p>
+
+        <h3>Recordatorio</h3>
+        <p class="dato">Los datos personales se consultan solo para atender al cliente.</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Clientes registrados</h1>
+
+        <p>&Uacute;ltimos 60 clientes dados de alta. La columna de notas muestra
+        lo que el cliente escribi&oacute; al registrarse.</p>
+
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Tel&eacute;fono</th>
+              <th>Notas</th>
+              <th>Alta</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cliente in clientes %}
+            <tr class="{{ 'par' if loop.index is even else '' }}">
+              <td>{{ cliente.id }}</td>
+              <td>{{ cliente.nombre }}</td>
+              <td>{{ cliente.correo }}</td>
+              <td>{{ cliente.telefono }}</td>
+              <td class="nota">{{ cliente.nota | safe }}</td>
+              <td>{{ cliente.creado }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <p class="aviso">
+          Las notas se capturan tal cual las escribe el cliente. Si alguna se ve
+          rara, avise a sistemas.
+        </p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

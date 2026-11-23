@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Panel - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">Panel interno</span>
+        <span class="horario">{{ datos.nombre }}</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/panel">Panel</a>
+      <a href="/panel/clientes">Clientes</a>
+      <a href="/panel/comprobantes">Comprobantes</a>
+      <a href="/registros">Registros</a>
+      <a href="/salir">Salir</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Sesi&oacute;n</h3>
+        <p class="dato">Usuario: {{ datos.usuario }}</p>
+        <p class="dato">Rol: {{ datos.rol }}</p>
+        <p class="dato">Sucursal: {{ datos.sucursal }}</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Panel del encargado</h1>
+
+        <p>Desde aqu&iacute; se consultan clientes, contratos y comprobantes de
+        la sucursal.</p>
+
+        <h2>Secciones</h2>
+        <ul>
+          <li><a href="/panel/clientes">Clientes registrados</a></li>
+          <li><a href="/panel/comprobantes">Comprobantes por revisar</a></li>
+          <li>Contratos por renovar en el mes</li>
+          <li>Bodegas en mantenimiento</li>
+        </ul>
+
+        <p class="aviso">
+          Este panel es de uso interno. No comparta su contrase&ntilde;a.
+        </p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+<!-- CCR{cookie_forjada} -->
+</body>
+</html>

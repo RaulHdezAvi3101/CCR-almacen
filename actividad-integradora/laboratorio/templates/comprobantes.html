@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Comprobantes - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">01 777 312 4410</span>
+        <span class="horario">Lunes a viernes, 9:00 a 18:00</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/comprobantes">Comprobantes</a>
+      <a href="/subir">Subir comprobante</a>
+      <a href="/cuenta">Mi cuenta</a>
+      <a href="/salir">Salir</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Su cuenta</h3>
+        <p class="dato">{{ usuario.nombre }}</p>
+        <p class="dato">{{ usuario.correo }}</p>
+
+        <h3>Descargas</h3>
+        <p class="dato">Los comprobantes se guardan por cinco a&ntilde;os.</p>
+        <p class="dato">Si falta alguno, escr&iacute;banos.</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Comprobantes de pago</h1>
+
+        <p>Estos son los comprobantes registrados a su nombre. Haga clic en el
+        n&uacute;mero para abrir el archivo.</p>
+
+        {% if lista %}
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Comprobante</th>
+              <th>Periodo</th>
+              <th>Bodega</th>
+              <th>Sucursal</th>
+              <th>Monto</th>
+              <th>Pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in lista %}
+            <tr class="{{ 'par' if loop.index is even else '' }}">
+              <td><a href="/comprobante/{{ c.id }}">{{ c.id }}</a></td>
+              <td>{{ c.periodo }}</td>
+              <td>{{ c.bodega }}</td>
+              <td>{{ c.sucursal }}</td>
+              <td>${{ c.monto }}.00</td>
+              <td>{{ c.subido }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>No hay comprobantes registrados a su correo.</p>
+        {% endif %}
+
+        <p class="nota-pie">
+          El n&uacute;mero de comprobante es consecutivo desde 2014.
+        </p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

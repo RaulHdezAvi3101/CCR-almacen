@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.log
+.pytest_cache/
+
+# Estado en tiempo de ejecución. No se versiona: la bitácora y los archivos
+# que suben los alumnos se generan al usar el sitio.
+bitacora.db
+datos/subidos/
+
+# Comprobantes de ejemplo — se generan con datos/generar_comprobantes.py
+datos/comprobantes/

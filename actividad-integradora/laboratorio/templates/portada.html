@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Almacenes CCR - Minibodegas en Cuernavaca</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">01 777 312 4410</span>
+        <span class="horario">Lunes a viernes, 9:00 a 18:00</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/bodegas">Bodegas</a>
+      <a href="/alta">Alta de clientes</a>
+      <a href="/comprobantes">Comprobantes</a>
+      <a href="/contratos">Consultar contrato</a>
+      <a href="/login">Acceso clientes</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Sucursales</h3>
+        {% for sucursal in sucursales %}
+        <div class="sucursal">
+          <strong>{{ sucursal.nombre }}</strong>
+          <p>{{ sucursal.direccion }}</p>
+          <p>Tel. {{ sucursal.telefono }}</p>
+        </div>
+        {% endfor %}
+
+        <h3>Bodegas disponibles</h3>
+        <p class="dato">{{ estados.get('libre', 0) }} libres</p>
+        <p class="dato">{{ estados.get('ocupada', 0) }} ocupadas</p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Espacio seguro para lo que m&aacute;s te importa</h1>
+
+        <p>Almacenes CCR renta minibodegas de 1 a 12 metros cuadrados en
+        Cuernavaca y Jiutepec. Custodiamos muebles, mercanc&iacute;a, archivo
+        muerto y equipo de c&oacute;mputo desde 1998.</p>
+
+        <h2>Nuestros servicios</h2>
+        <ul>
+          <li>Bodegas desde 1 m&sup2; hasta 12 m&sup2;</li>
+          <li>Acceso con identificaci&oacute;n y registro de entrada</li>
+          <li>Pago mensual en efectivo o transferencia</li>
+          <li>Comprobantes en l&iacute;nea</li>
+        </ul>
+
+        <h2>Tres sucursales</h2>
+        <table class="tabla">
+          <tr>
+            <th>Sucursal</th>
+            <th>Direcci&oacute;n</th>
+            <th>Tel&eacute;fono</th>
+          </tr>
+          {% for sucursal in sucursales %}
+          <tr>
+            <td>{{ sucursal.nombre }}</td>
+            <td>{{ sucursal.direccion }}</td>
+            <td>{{ sucursal.telefono }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+
+        <h2>&iquest;Necesita una bodega?</h2>
+        <p>Acuda a cualquiera de nuestras sucursales con identificaci&oacute;n
+        oficial. Un asesor le mostrar&aacute; las bodegas disponibles y le
+        explicar&aacute; el contrato.</p>
+
+        <p class="aviso">
+          Sitio en actualizaci&oacute;n. Si encuentra alg&uacute;n problema,
+          escriba a soporte@ccr-almacenes.example
+        </p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <span class="vacio">&nbsp;</span>
+      <a href="/publico/01-aviso-privacidad">Aviso de privacidad</a> |
+      <a href="/publico/02-vacante">Bolsa de trabajo</a> |
+      <a href="/publico/03-ficha-dominio">Directorio</a>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

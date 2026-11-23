@@ -1,0 +1,19 @@
+services:
+
+  grupo1:
+    build: ./laboratorio
+    restart: unless-stopped
+    ports: ["8001:8000"]
+    volumes: ["./datos/grupo1:/app/datos"]
+
+  grupo2:
+    build: ./laboratorio
+    restart: unless-stopped
+    ports: ["8002:8000"]
+    volumes: ["./datos/grupo2:/app/datos"]
+
+  grupo3:
+    build: ./laboratorio
+    restart: unless-stopped
+    ports: ["8003:8000"]
+    volumes: ["./datos/grupo3:/app/datos"]

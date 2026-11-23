@@ -1,0 +1,21 @@
+[project]
+name = "ccr-bodegas"
+version = "0.1.0"
+description = "Sitio CCR para la actividad integradora de seguridad informatica"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.0",
+    "waitress>=3.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["pruebas"]
+pythonpath = ["."]

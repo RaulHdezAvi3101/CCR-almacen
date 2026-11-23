@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Registros del sistema - CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="cuerpo-viejo">
+  <div class="marco-viejo">
+
+    <div class="barra-vieja">
+      <span class="titulo-viejo">CCR - Registros del sistema</span>
+      <span class="version-vieja">en vivo</span>
+    </div>
+
+    <div class="caja-vieja ancha">
+
+      <h2>Tr&aacute;fico reciente</h2>
+      <p class="aviso-viejo">
+        &Uacute;ltimas 300 peticiones recibidas por el sitio. Esta p&aacute;gina
+        es de diagn&oacute;stico y se consulta sin contrase&ntilde;a mientras
+        el &aacute;rea de sistemas la termina de cerrar.
+      </p>
+
+      <table class="tabla-vieja">
+        <tr>
+          <th>Momento</th>
+          <th>IP</th>
+          <th>M&eacute;todo</th>
+          <th>Ruta</th>
+          <th>C&oacute;digo</th>
+          <th>Agente</th>
+        </tr>
+        {% for a in accesos %}
+        <tr>
+          <td>{{ a.momento }}</td>
+          <td>{{ a.ip }}</td>
+          <td>{{ a.metodo }}</td>
+          <td class="ruta">{{ a.ruta }}</td>
+          <td class="codigo-{{ a.codigo }}">{{ a.codigo }}</td>
+          <td class="agente">{{ (a.agente or "")[:40] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <h2>Intentos de acceso</h2>
+      <p class="aviso-viejo">
+        &Uacute;ltimos 150 inicios de sesi&oacute;n, con el usuario probado.
+      </p>
+
+      <table class="tabla-vieja">
+        <tr>
+          <th>Momento</th>
+          <th>Usuario</th>
+          <th>Resultado</th>
+          <th>IP</th>
+        </tr>
+        {% for i in intentos %}
+        <tr>
+          <td>{{ i.momento }}</td>
+          <td>{{ i.usuario }}</td>
+          <td class="resultado-{{ i.resultado }}">{{ i.resultado }}</td>
+          <td>{{ i.ip }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <p class="pie-viejo">
+        Sistema CCR-Bodegas v2.1 &mdash; Bit&aacute;cora de diagn&oacute;stico
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

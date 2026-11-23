@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Administraci&oacute;n - CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="cuerpo-viejo">
+  <div class="marco-viejo">
+
+    <div class="barra-vieja">
+      <span class="titulo-viejo">CCR Administraci&oacute;n</span>
+      <span class="version-vieja">v2.1</span>
+    </div>
+
+    <div class="caja-vieja">
+      <h2>Acceso al panel</h2>
+
+      {% if error %}
+      <p class="error-viejo">{{ error }}</p>
+      {% endif %}
+
+      <form method="post" action="/admin-viejo">
+        <table class="tabla-vieja">
+          <tr>
+            <td>Usuario:</td>
+            <td><input type="text" name="usuario" value="{{ usuario }}" size="20"></td>
+          </tr>
+          <tr>
+            <td>Contrase&ntilde;a:</td>
+            <td><input type="password" name="clave" size="20"></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="centrado">
+              <input type="submit" value="Entrar">
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <p class="pie-viejo">
+        Sistema CCR-Bodegas v2.1 &mdash; &Uacute;ltima modificaci&oacute;n: 2019
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

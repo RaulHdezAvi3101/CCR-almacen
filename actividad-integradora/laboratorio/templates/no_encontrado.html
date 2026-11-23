@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>No encontrado - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+    </header>
+    <div class="cuerpo">
+      <main class="contenido">
+        <h1>No encontrado</h1>
+        <p>El {{ que }} que busca no existe o fue dado de baja.</p>
+        <p><a href="/">Volver al inicio</a></p>
+      </main>
+    </div>
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+    </footer>
+  </div>
+</body>
+</html>

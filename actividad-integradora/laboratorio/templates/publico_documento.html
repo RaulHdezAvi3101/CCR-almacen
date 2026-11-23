@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{{ titulo }} - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">01 777 312 4410</span>
+        <span class="horario">Lunes a viernes, 9:00 a 18:00</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/bodegas">Bodegas</a>
+      <a href="/publico/">Documentos</a>
+      <a href="/login">Acceso clientes</a>
+    </nav>
+
+    <div class="cuerpo">
+      <main class="contenido">
+        <h1>{{ titulo }}</h1>
+
+        <pre class="documento">{{ cuerpo }}</pre>
+
+        <p class="nota-pie">
+          <a href="/publico/">Volver al &iacute;ndice de documentos</a>
+        </p>
+      </main>
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

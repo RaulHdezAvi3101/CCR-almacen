@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Usuarios - CCR Administraci&oacute;n</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="cuerpo-viejo">
+  <div class="marco-viejo">
+
+    <div class="barra-vieja">
+      <span class="titulo-viejo">CCR Administraci&oacute;n</span>
+      <span class="version-vieja">v2.1</span>
+    </div>
+
+    <div class="caja-vieja ancha">
+      <h2>Usuarios del sistema</h2>
+
+      <p class="aviso-viejo">
+        Las contrase&ntilde;as se guardan cifradas con MD5. No se pueden
+        recuperar, solo restablecer.
+      </p>
+
+      <table class="tabla-vieja">
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Hash</th>
+          <th>Activo</th>
+        </tr>
+        {% for fila in filas %}
+        <tr>
+          <td>{{ fila.id }}</td>
+          <td>{{ fila.usuario }}</td>
+          <td>{{ fila.nombre }}</td>
+          <td>{{ fila.correo }}</td>
+          <td>{{ fila.rol }}</td>
+          <td class="hash">{{ fila.hash }}</td>
+          <td>{{ fila.activo }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <p><a href="/admin-viejo">Volver</a></p>
+
+      <p class="pie-viejo">
+        Sistema CCR-Bodegas v2.1 &mdash; {{ filas | length }} usuarios
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

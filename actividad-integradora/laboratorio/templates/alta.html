@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Alta de clientes - Almacenes CCR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div class="marco">
+
+    <header class="cabecera">
+      <div class="logo">
+        <span class="logo-ccr">CCR</span>
+        <span class="logo-lema">Almacenes</span>
+      </div>
+      <div class="contacto">
+        <span class="telefono">01 777 312 4410</span>
+        <span class="horario">Lunes a viernes, 9:00 a 18:00</span>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/bodegas">Bodegas</a>
+      <a href="/alta">Alta de clientes</a>
+      <a href="/comprobantes">Comprobantes</a>
+      <a href="/contratos">Consultar contrato</a>
+      <a href="/login">Acceso clientes</a>
+    </nav>
+
+    <div class="cuerpo">
+
+      <aside class="lateral">
+        <h3>Antes de empezar</h3>
+        <p class="dato">Tenga a la mano su identificaci&oacute;n oficial.</p>
+        <p class="dato">El contrato se firma en la sucursal.</p>
+        <p class="dato">La renta se paga por mes adelantado.</p>
+
+        <h3>Bodegas libres</h3>
+        <p class="dato"><a href="/bodegas">Ver cat&aacute;logo</a></p>
+      </aside>
+
+      <main class="contenido">
+        <h1>Alta de clientes</h1>
+
+        <p>Registre sus datos para apartar una bodega. Un asesor lo llamar&aacute;
+        para confirmar la disponibilidad y agendar la firma del contrato.</p>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if bien %}
+        <div class="bien">{{ bien }}</div>
+        {% endif %}
+
+        <form method="post" action="/alta" class="formulario">
+          <p>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" value="{{ datos.nombre }}" size="34">
+          </p>
+          <p>
+            <label for="correo">Correo</label>
+            <input type="text" id="correo" name="correo" value="{{ datos.correo }}" size="34">
+          </p>
+          <p>
+            <label for="telefono">Tel&eacute;fono</label>
+            <input type="text" id="telefono" name="telefono" value="{{ datos.telefono }}" size="18">
+          </p>
+          <p>
+            <label for="rfc">RFC</label>
+            <input type="text" id="rfc" name="rfc" value="{{ datos.rfc }}" size="18">
+          </p>
+          <p>
+            <label for="nota">Notas</label>
+            <input type="text" id="nota" name="nota" value="{{ datos.nota }}" size="44">
+          </p>
+          <p>
+            <label for="bodega">Bodega de inter&eacute;s</label>
+            <input type="text" id="bodega" name="bodega" value="{{ datos.bodega }}" size="10">
+          </p>
+          <p>
+            <input type="submit" value="Registrar">
+          </p>
+        </form>
+
+        <p class="aviso">
+          El campo de notas es para uso interno de la sucursal. Puede dejarlo
+          vac&iacute;o. El personal lo leer&aacute; al revisar su expediente.
+        </p>
+
+        <p class="nota-pie">&Uacute;ltima actualizaci&oacute;n del sistema: 14 de septiembre de 2021</p>
+      </main>
+
+    </div>
+
+    <footer class="pie">
+      <span>Almacenes CCR, S.A. de C.V.</span>
+      <p class="creditos">Sitio desarrollado por Sistemas Alarc&oacute;n, S.C.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
